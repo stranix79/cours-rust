@@ -1,0 +1,16 @@
+[package]
+name = "lab05-boite-a-outils-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 05 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "outils"
+path = "src/lib.rs"
+
+[[bin]]
+name = "outils-solution"
+path = "src/main.rs"
+
+[dependencies]

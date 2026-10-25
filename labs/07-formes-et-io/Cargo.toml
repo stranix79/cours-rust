@@ -1,0 +1,19 @@
+[package]
+name = "lab07-formes-et-io"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 07 du cours Rust : des formes, un trait, des génériques et des objets trait"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/formes.rs écrivent `use formes::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "formes"
+path = "src/lib.rs"
+
+[[bin]]
+name = "formes"
+path = "src/main.rs"
+
+[dependencies]

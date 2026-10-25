@@ -1,0 +1,46 @@
+[package]
+name = "lab15-release-solution"
+version = "1.2.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Labo 15 du cours Rust, solution : hostinfo, un petit outil amené au niveau livrable"
+license = "MIT"
+publish = false
+
+[lib]
+name = "hostinfo"
+path = "src/lib.rs"
+
+# Nom distinct de celui du squelette : les deux binaires partagent le même
+# dossier target/ de l'espace de travail. Dans ton propre projet, ce serait
+# simplement "hostinfo".
+[[bin]]
+name = "hostinfo-solution"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Les avertissements du projet, versionnés avec le code : pas besoin de
+# répéter des options à chaque `cargo clippy`, la CI et ton éditeur voient
+# les mêmes règles.
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+# pedantic : le groupe des remarques de style exigeantes. priority = -1 pour
+# que les réglages individuels ci-dessous l'emportent sur le groupe.
+pedantic = { level = "warn", priority = -1 }
+# On interdit unwrap() dans le code (expect() avec un message reste permis).
+unwrap_used = "warn"
+# Deux règles pedantic qu'on désactive en connaissance de cause.
+module_name_repetitions = "allow"
+missing_panics_doc = "allow"
+
+# Le profil des binaires qu'on livre n'est PAS ici mais dans
+# .cargo/config.toml, à côté : dans un espace de travail Cargo (celui du
+# cours), un [profile.release] écrit dans le Cargo.toml d'un membre est
+# ignoré avec un avertissement. Dans ton projet à toi, seul à la racine de
+# son dépôt, recopie le bloc [profile.release] de .cargo/config.toml ici.

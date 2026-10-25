@@ -1,0 +1,19 @@
+[package]
+name = "lab04-inventaire"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 04 du cours Rust : un inventaire qui fait travailler la possession et les emprunts"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/inventaire.rs écrivent `use inventaire::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "inventaire"
+path = "src/lib.rs"
+
+[[bin]]
+name = "inventaire"
+path = "src/main.rs"
+
+[dependencies]

@@ -1,0 +1,7 @@
+# Ce que docker build n'envoie pas au démon : moins de transfert, et pas de
+# target/ de plusieurs centaines de Mo copié dans l'image pour rien.
+target/
+solution/
+.git/
+.github/
+*.md

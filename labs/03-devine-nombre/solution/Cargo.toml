@@ -1,0 +1,19 @@
+[package]
+name = "lab03-devine-nombre-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 03 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "devine"
+path = "src/lib.rs"
+
+[[bin]]
+name = "devine-solution"
+path = "src/main.rs"
+
+[dependencies]
+# La seule dépendance : la bibliothèque standard n'a pas de générateur de
+# nombres aléatoires. rand::rng() et random_range viennent de rand 0.9.
+rand = "0.9"

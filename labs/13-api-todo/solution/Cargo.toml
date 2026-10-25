@@ -1,0 +1,29 @@
+[package]
+name = "lab13-api-todo-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 13 du cours Rust, solution : une API REST de tâches avec axum et tokio"
+publish = false
+
+[lib]
+name = "todo_api"
+path = "src/lib.rs"
+
+# Nom distinct de celui du squelette : les deux binaires partagent le même
+# dossier target/ de l'espace de travail.
+[[bin]]
+name = "todo-api-solution"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+axum = "0.8"
+clap = { version = "4", features = ["derive"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal", "time"] }
+
+[dev-dependencies]
+http-body-util = "0.1"
+tower = { version = "0.5", features = ["util"] }

@@ -1,0 +1,20 @@
+[package]
+name = "lab09-ma-crate"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 09 du cours Rust : une crate semver maison, en modules, avec tests et documentation"
+publish = false
+
+# Une bibliothèque ET un binaire dans le même paquet. Sans ce bloc, la
+# bibliothèque s'appellerait comme le paquet (lab09_ma_crate) ; on lui donne
+# un nom qui dit ce qu'elle fait. Le même nom dans la solution : les tests de
+# tests/semver.rs écrivent `use semver_maison::...` et restent identiques.
+[lib]
+name = "semver_maison"
+path = "src/lib.rs"
+
+[[bin]]
+name = "semver"
+path = "src/main.rs"
+
+[dependencies]

@@ -1,0 +1,16 @@
+[package]
+name = "lab11-pinger-parallele-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 11 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "pinger"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pinger-solution"
+path = "src/main.rs"
+
+[dependencies]

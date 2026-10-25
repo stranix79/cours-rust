@@ -1,0 +1,19 @@
+[package]
+name = "lab11-pinger-parallele"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 11 du cours Rust : sonder des ports TCP en parallèle avec un worker pool"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/pinger.rs écrivent `use pinger::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "pinger"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pinger"
+path = "src/main.rs"
+
+[dependencies]

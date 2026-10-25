@@ -1,0 +1,12 @@
+[package]
+name = "lab01-hello"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 01 du cours Rust : un programme qui dit sur quelle machine il tourne"
+publish = false
+
+[[bin]]
+name = "hello"
+path = "src/main.rs"
+
+[dependencies]

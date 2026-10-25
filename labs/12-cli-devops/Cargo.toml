@@ -1,0 +1,24 @@
+[package]
+name = "lab12-cli-devops"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 12 du cours Rust : dsk, un outil DevOps à sous-commandes (fichiers, journaux, environnement, processus)"
+publish = false
+
+# Même nom de bibliothèque dans la solution : tests/dsk.rs écrit
+# `use dsk::...` et reste identique dans les deux paquets.
+[lib]
+name = "dsk"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dsk"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+# derive : #[derive(Parser)] ; env : #[arg(env = "...")] lit une variable
+# d'environnement quand l'option est absente.
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

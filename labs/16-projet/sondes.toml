@@ -1,0 +1,23 @@
+# sondes.toml : la configuration d'exemple du labo 16.
+# Les durées s'écrivent 500ms, 10s, 2m ou 1h. ecoute et base peuvent être
+# remplacées par --ecoute et --base, ou SONDES_ECOUTE et SONDES_BASE.
+ecoute = "127.0.0.1:8080"
+base = "sondes.db"
+intervalle = "5s"
+parallelisme = 8
+
+# Lance `python3 -m http.server 8000 --bind 127.0.0.1` pour que celle-ci
+# réponde.
+[[cible]]
+nom = "web-local"
+adresse = "127.0.0.1:8000"
+timeout = "500ms"
+
+[[cible]]
+nom = "ssh-local"
+adresse = "127.0.0.1:22"
+timeout = "500ms"
+
+[[cible]]
+nom = "postgres-local"
+adresse = "127.0.0.1:5432"

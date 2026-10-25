@@ -1,0 +1,12 @@
+[package]
+name = "lab01-hello-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 01 du cours Rust, solution commentée"
+publish = false
+
+[[bin]]
+name = "hello-solution"
+path = "src/main.rs"
+
+[dependencies]

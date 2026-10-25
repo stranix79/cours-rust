@@ -1,0 +1,19 @@
+[package]
+name = "lab06-compte-bancaire"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 06 du cours Rust : des comptes bancaires en structs, enums et Option"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/banque.rs écrivent `use banque::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "banque"
+path = "src/lib.rs"
+
+[[bin]]
+name = "banque"
+path = "src/main.rs"
+
+[dependencies]

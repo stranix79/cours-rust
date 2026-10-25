@@ -1,0 +1,8 @@
+# rustfmt.toml : les réglages de cargo fmt pour ce projet. Peu d'options
+# stables existent, et c'est voulu : comme gofmt, rustfmt doit donner le même
+# résultat chez tout le monde. On ne touche qu'à l'essentiel.
+edition = "2024"
+max_width = 100
+use_field_init_shorthand = true
+use_try_shorthand = true
+newline_style = "Unix"

@@ -1,0 +1,6 @@
+# Ce que docker build n'envoie pas : target/ pèse des centaines de Mo, et la
+# base locale n'a rien à faire dans l'image.
+target/
+*.db
+.git/
+*.md

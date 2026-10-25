@@ -1,0 +1,12 @@
+2026-10-25 01:02:03 INFO démarrage du service sur web-01
+2026-10-25 01:02:04 DEBUG lecture de /etc/app/config.toml
+2026-10-25 01:02:05 WARN latence élevée vers db-01 : 180 ms
+2026-10-25 01:02:06 ERROR connexion refusée par db-01
+2026-10-25 01:02:07 WARN latence élevée vers db-01 : 95 ms
+ligne illisible
+2026-10-25 01:02:08 ERROR connexion refusée par db-01
+2026-10-25 01:02:09 INFO sauvegarde écrite dans /var/backups/db.sql.gz
+2026-10-25 01:02:10 WARN latence élevée vers cache-01 : 40 ms
+2026-10-25 01:02:11 ERROR disque plein sur /var/lib/postgresql
+2026-10-25 01:02:12 INFO rotation de /var/log/app.log terminée
+2026-10-25 01:02:13 INFO arrêt du service sur web-01

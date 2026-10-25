@@ -1,0 +1,16 @@
+# Labo 15 : le profil des binaires qu'on livre.
+#
+# Pourquoi ce fichier et pas Cargo.toml : le labo est membre de l'espace de
+# travail du cours, et Cargo ne lit les [profile] que dans le Cargo.toml de la
+# racine de l'espace de travail (il ignore ceux des membres, avec un
+# avertissement). Un .cargo/config.toml, lui, est lu depuis le dossier où tu
+# lances cargo, en remontant : `cargo build --release` lancé ici l'utilise.
+# Dans ton propre projet, mets ce même bloc dans Cargo.toml.
+#
+# Ce que chaque réglage change est mesuré dans le README du labo.
+[profile.release]
+opt-level = 3       # le défaut en release : optimiser pour la vitesse ("s" ou "z" pour la taille)
+lto = "fat"         # optimisation à l'édition de liens, à travers toutes les crates
+codegen-units = 1   # une seule unité de compilation : build plus lent, binaire plus petit et plus rapide
+strip = true        # retire les symboles et les infos de débogage du binaire
+panic = "abort"     # pas de déroulement de pile : un panic arrête le processus tout de suite

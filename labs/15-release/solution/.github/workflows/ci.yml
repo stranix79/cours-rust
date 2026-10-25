@@ -1,0 +1,69 @@
+# Labo 15 : workflow GitHub Actions pour un projet Rust.
+# Exemple seulement : GitHub ne lit que .github/workflows/ à la RACINE du
+# dépôt, ce fichier dans labs/15-release/ n'est donc pas exécuté. Copie-le à
+# la racine de ton propre projet.
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  # Un avertissement du compilateur casse la CI, pas seulement ceux de clippy.
+  RUSTFLAGS: -D warnings
+
+jobs:
+  # Le formatage et clippy ne dépendent pas du système : une seule machine.
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2   # met target/ et ~/.cargo en cache entre deux runs
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+
+  # Les tests et le build sur les trois systèmes : un /proc qui manque sous
+  # macOS ou un chemin en dur cassé sous Windows se voit ici, pas chez
+  # l'utilisateur.
+  test:
+    needs: lint
+    strategy:
+      fail-fast: false              # voir les trois résultats, même si l'un échoue
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo test
+      - run: cargo build --release
+      - run: cargo run --release -- --version
+
+  # Sur un tag v*, le binaire Linux statique, attaché comme artefact. Pour une
+  # vraie page Releases avec archives et sommes de contrôle, cargo-dist
+  # génère un workflow complet (chapitre 15).
+  linux-musl:
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-unknown-linux-musl
+      - run: sudo apt-get install -y musl-tools
+      - run: cargo build --release --target x86_64-unknown-linux-musl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hostinfo-x86_64-linux-musl
+          path: target/x86_64-unknown-linux-musl/release/hostinfo-solution

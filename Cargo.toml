@@ -1,0 +1,7 @@
+# Espace de travail Cargo du cours : un seul dossier target/ partagé par tous
+# les labos, donc les dépendances (serde, tokio, axum…) ne se compilent qu'une
+# fois. Chaque labo reste un paquet indépendant avec son propre Cargo.toml :
+# `cargo test` lancé dans labs/NN-slug/ ne construit que ce labo.
+[workspace]
+resolver = "3"
+members = ["labs/*", "labs/*/solution"]

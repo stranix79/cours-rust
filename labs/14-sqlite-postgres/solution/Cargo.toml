@@ -1,0 +1,22 @@
+[package]
+name = "lab14-sqlite-postgres-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 14 du cours Rust, solution : un inventaire sur SQLite ou PostgreSQL derrière un trait"
+publish = false
+
+[lib]
+name = "inventaire_db"
+path = "src/lib.rs"
+
+# Nom distinct de celui du squelette : les deux binaires partagent le même
+# dossier target/ de l'espace de travail.
+[[bin]]
+name = "inventaire-db-solution"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive", "env"] }
+postgres = "0.19"
+rusqlite = { version = "0.41", features = ["bundled"] }

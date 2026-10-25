@@ -1,0 +1,19 @@
+[package]
+name = "lab02-convertisseur"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 02 du cours Rust : températures, tailles lisibles et durées"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/convertisseur.rs écrivent `use convertisseur::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "convertisseur"
+path = "src/lib.rs"
+
+[[bin]]
+name = "convertisseur"
+path = "src/main.rs"
+
+[dependencies]

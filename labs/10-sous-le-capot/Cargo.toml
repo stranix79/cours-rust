@@ -1,0 +1,17 @@
+[package]
+name = "lab10-sous-le-capot"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 10 du cours Rust : Rc, RefCell, Box, Weak, Drop, FFI et tailles, en petites expériences"
+publish = false
+
+# Même nom de bibliothèque dans la solution : tests/capot.rs reste identique.
+[lib]
+name = "capot"
+path = "src/lib.rs"
+
+[[bin]]
+name = "capot"
+path = "src/main.rs"
+
+[dependencies]

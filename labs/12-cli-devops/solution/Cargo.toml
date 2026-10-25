@@ -1,0 +1,22 @@
+[package]
+name = "lab12-cli-devops-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 12 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "dsk"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dsk-solution"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+# derive : #[derive(Parser)] ; env : #[arg(env = "...")] lit une variable
+# d'environnement quand l'option est absente.
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

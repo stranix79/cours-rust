@@ -1,0 +1,23 @@
+[package]
+name = "lab08-robuste"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 08 du cours Rust : un lecteur de configuration qui dit toujours pourquoi il refuse"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/config.rs écrivent `use robuste::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "robuste"
+path = "src/lib.rs"
+
+[[bin]]
+name = "robuste"
+path = "src/main.rs"
+
+# thiserror pour l'enum d'erreur de la bibliothèque, anyhow pour le contexte
+# dans le binaire : la règle du chapitre 8.
+[dependencies]
+anyhow = "1"
+thiserror = "2"

@@ -1,0 +1,16 @@
+[package]
+name = "lab09-ma-crate-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 09 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "semver_maison"
+path = "src/lib.rs"
+
+[[bin]]
+name = "semver-solution"
+path = "src/main.rs"
+
+[dependencies]

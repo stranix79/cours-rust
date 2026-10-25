@@ -1,0 +1,16 @@
+[package]
+name = "lab04-inventaire-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 04 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "inventaire"
+path = "src/lib.rs"
+
+[[bin]]
+name = "inventaire-solution"
+path = "src/main.rs"
+
+[dependencies]

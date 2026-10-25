@@ -1,0 +1,26 @@
+[package]
+name = "lab14-sqlite-postgres"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 14 du cours Rust : un inventaire sur SQLite ou PostgreSQL derrière un trait"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# tests/depot.rs écrit `use inventaire_db::...` et reste identique dans les deux.
+[lib]
+name = "inventaire_db"
+path = "src/lib.rs"
+
+[[bin]]
+name = "inventaire-db"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+# env : un argument peut venir d'une variable d'environnement (INVENTAIRE_DSN).
+clap = { version = "4", features = ["derive", "env"] }
+# Le client PostgreSQL synchrone : même API que tokio-postgres, sans async.
+postgres = "0.19"
+# bundled : SQLite est compilé depuis ses sources C et lié dans le binaire.
+# Aucune libsqlite3 à installer, ni sur ta machine ni sur le serveur.
+rusqlite = { version = "0.41", features = ["bundled"] }

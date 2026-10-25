@@ -1,0 +1,19 @@
+[package]
+name = "lab05-boite-a-outils"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 05 du cours Rust : une boîte à outils de sysadmin écrite en chaînes d'itérateurs"
+publish = false
+
+# La bibliothèque porte le même nom dans le squelette et dans la solution :
+# les tests de tests/outils.rs écrivent `use outils::...` et restent
+# identiques mot pour mot dans les deux paquets.
+[lib]
+name = "outils"
+path = "src/lib.rs"
+
+[[bin]]
+name = "outils"
+path = "src/main.rs"
+
+[dependencies]

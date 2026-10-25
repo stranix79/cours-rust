@@ -1,0 +1,16 @@
+[package]
+name = "lab06-compte-bancaire-solution"
+version = "0.1.0"
+edition = "2024"
+description = "Labo 06 du cours Rust, solution commentée"
+publish = false
+
+[lib]
+name = "banque"
+path = "src/lib.rs"
+
+[[bin]]
+name = "banque-solution"
+path = "src/main.rs"
+
+[dependencies]
